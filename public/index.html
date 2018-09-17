@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Sockets Example</title>
+    <title>DrawPad.Colab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
@@ -30,10 +30,20 @@
 </head>
     <body>
         <h1 style="display: inline;"><u>DrawPad.Colab</u></h1>
-        <a href="#" style="background-color: #00f9bb;color: black;text-decoration: none; border-radius: 10px; padding: 4px;" onclick="printScrean()">Save</a>
+        <a href="#" style="background-color: #00f9bb;color: black;text-decoration: none; border-radius: 10px; padding: 4px; margin-right: 20px;" onclick="printScrean()">Save</a>
+
+        <form oninput="pointerSizeOut.value=parseInt(pointerSizeIn.value)" style="display: inline;">
+            <h4 style="display: inline;">Cursor Diameter -</h4>
+            0<input id="pointerSizeIn" type="range" onchange="pointerSize(pointerSizeOut.value)" value="10" max="50" min="0">50
+            --> 
+            <output name="pointerSizeOut" for="pointerSizeIn" style="border: 2px dotted gray;">10</output>
+        </form>
+
         <br/>
         <br/>
-        <div id="color-grid">
+        
+        <div id="color-grid" style="margin-bottom: 1px;">
+        
             <a href="#" onclick="getColor('#FFDBA3')" style="color:black;background-color: #FFDBA3;  " class="cor" >
                 Eraser
                 <i class="fa fa-eraser" style="margin: auto;padding: auto;"></i>
@@ -45,8 +55,8 @@
             <a href="#" onclick="getColor('green')" style="color:white;background-color:green; "  class="cor" >Verde</a>
             <a href="#" onclick="getColor('red')" style="color:white;background-color:red; " class="cor"  >Vermelho</a>
             <a href="#" onclick="getColor('pink')" style="color:white;background-color:pink; "  class="cor" >Rosa</a>
+        
         </div>
-        <br/>
-        <br/>
+
     </body>
 </html>

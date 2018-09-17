@@ -1,9 +1,12 @@
 // Keep track of our socket connection
 var socket;
+//Set basic attributes
 let color = 'white';
-//Aux funtions
+let cursorSize = 10;
+//Aux funtions for adapt color, brush size and take prints
 getColor = (id) => {color = id }
 printScrean = ()=> {window.print()}
+pointerSize = (value) => {cursorSize = parseInt(value)}
 //
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -20,7 +23,8 @@ function setup() {
       // Draw a blue circle
       fill(data.colorAux);
       noStroke();
-      rect(data.x, data.y, 10, 10,5);
+      console.log(data.cursorSizeAux)
+      ellipse(data.x, data.y, data.cursorSizeAux, data.cursorSizeAux);
     }
   );
 }
@@ -34,9 +38,9 @@ function mouseDragged() {
   fill(color);
   noSmooth();
   noStroke();
-  rect(mouseX,mouseY, 10, 10,5);
+  ellipse(mouseX,mouseY, cursorSize, cursorSize);
   // Send the mouse coordinates
-  sendmouse(mouseX,mouseY, color); 
+  sendmouse(mouseX,mouseY, color, cursorSize); 
 }
 
 function mouseClicked() {
@@ -44,12 +48,12 @@ function mouseClicked() {
   fill(color);
   noSmooth();
   noStroke();
-  rect(mouseX,mouseY, 10, 10,5);
+  ellipse(mouseX,mouseY, cursorSize, cursorSize);
   // Send the mouse coordinates
-  sendmouse(mouseX,mouseY, color); 
+  sendmouse(mouseX,mouseY, color, cursorSize); 
 }
 // Function for sending to the socket
-function sendmouse(xpos, ypos, color ) {
+function sendmouse(xpos, ypos, color, cursorSize ) {
   // We are sending!
   console.log("sendmouse: " + xpos + " " + ypos);
   
@@ -58,13 +62,9 @@ function sendmouse(xpos, ypos, color ) {
     x: xpos,
     y: ypos,
     colorAux: color,
+    cursorSizeAux: cursorSize,
   };
 
   // Send that object to the socket
   socket.emit('mouse',data);
-}
-
-function inicializa(){
-  var tecla = document.addEventListener('keydown', () => {alert(event.keyCode)});
-
 }
