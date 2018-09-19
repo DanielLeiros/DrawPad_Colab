@@ -47,11 +47,11 @@ function mouseClicked() {
   noSmooth();
   noStroke();
   ellipse(mouseX,mouseY, cursorSize, cursorSize);
-  // Send the mouse coordinates, color and cursor size 
+    // Send the mouse coordinates, color and cursor size 
   sendmouse(mouseX,mouseY, color, cursorSize); 
 }
 // Function for sending to the socket
-function sendmouse(xpos, ypos, color, cursorSize){
+function sendmouse(xpos, ypos, color, cursorSize ) {
   // We are sending!
   console.log("sendmouse: " + xpos + " " + ypos);
   
