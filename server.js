@@ -1,6 +1,4 @@
 // Based off of Shawn Van Every's Live Web and Daniel Shiffman's youtube video
-
-// Using express: http://expressjs.com/
 var express = require('express');
 // Create the app
 var app = express();
@@ -18,7 +16,6 @@ function listen() {
 
 app.use(express.static('public'));
 
-
 // WebSocket Portion
 // WebSockets work with the HTTP server
 var io = require('socket.io')(server);
@@ -31,7 +28,6 @@ io.sockets.on('connection',
   
     console.log("We have a new client: " + socket.id);
   
-    // When this user emits, client side: socket.emit('otherevent',some data);
     socket.on('mouse',
       function(data) {
         // Data comes in as whatever was sent, including objects
@@ -39,9 +35,6 @@ io.sockets.on('connection',
       
         // Send it to all other clients
         socket.broadcast.emit('mouse', data);
-        
-        // This is a way to send to everyone including sender
-        // io.sockets.emit('message', "this goes to everyone");
 
       }
     );
