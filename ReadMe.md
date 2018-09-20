@@ -13,5 +13,5 @@ Entre na pasta DrawPad_Colab -> cd Trabalho_de_redes/DrawPad_Colab;
 Se já possuir o Node.Js instalado -> npm start;
 
 Caso o browser não seja adivado automaticamente (chrome preferencialmente...), abra-o e vá para -> http://localhost:3000 
-e para utilizar em dispositivos conectados na mesma rede, vá no navegador do novo dispositivo a conectar, e coloque na url => "ip do dispositivo provedor (que está rodando o node)":3000;
+e para utilizar em dispositivos conectados na mesma rede, vá ao navegador do novo dispositivo a conectar, e coloque na url => "ip do dispositivo provedor(que está rodando o node)":3000, Ex.: 10.7.34.190:3000;
 
