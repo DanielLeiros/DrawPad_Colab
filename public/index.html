@@ -29,14 +29,13 @@
 
 </head>
     <body>
-        <h1 style="display: inline;"><u>DrawPad.Colab</u></h1>
-        <a href="#" style="background-color: #00f9bb;color: black;text-decoration: none; border-radius: 10px; padding: 4px; margin-right: 20px;" onclick="printScrean()">Save</a>
-
+        <h1 style="display: inline;">DrawPad.Colab</h1>
+        <a href="#" style="background-color: #337ab7;color: white;text-decoration: none; padding: 10px 45px; margin-left: 90%;" onclick="printScrean()">Save</a>
+        <br><br>
         <form oninput="pointerSizeOut.value=parseInt(pointerSizeIn.value)" style="display: inline;">
-            <h4 style="display: inline;">Cursor Diameter -</h4>
-            0<input id="pointerSizeIn" type="range" onchange="pointerSize(pointerSizeOut.value)" value="10" max="50" min="0">50
-            --> 
-            <output name="pointerSizeOut" for="pointerSizeIn" style="border: 2px dotted gray;">10</output>
+            <h4 style="display: inline;margin-top: 10">Diâmetro do cursor: </h4>
+            <output name="pointerSizeOut" for="pointerSizeIn">10</output>
+            <input id="pointerSizeIn" type="range" onchange="pointerSize(pointerSizeOut.value)" value="10" max="50" min="0">
         </form>
 
         <br/>
@@ -45,7 +44,7 @@
         <div id="color-grid" style="margin-bottom: 1px;">
         
             <a href="#" onclick="getColor('#FFDBA3')" style="color:black;background-color: #FFDBA3;  " class="cor" >
-                Eraser
+                Borracha
                 <i class="fa fa-eraser" style="margin: auto;padding: auto;"></i>
             </a>
             <a href="#" onclick="getColor('gray')" style="color:white;background-color:gray; " class="cor" >Cinza</a>
